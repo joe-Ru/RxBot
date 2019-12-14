@@ -1,3 +1,8 @@
+## 12/14/2019
+-Added command to clear out messages
+-Can now delete messages sent using await 'ctx.channel.purge(limit=1)'
+-8ball command takes input from user and can now delete user input.
+
 ## 12/13/2019 ##
 -Stopped using Anaconda as a way to build the application, much easier to install pip and download the discord.py
 through there
