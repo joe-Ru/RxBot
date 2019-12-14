@@ -1,6 +1,13 @@
+#TODO:
+# 1) Place 8ball command in features folder
+# 2) Use your own cat api to implement
+# 3) 
+
 import discord
 import random
+import requests
 from discord.ext import commands
+
 
 client = commands.Bot(command_prefix = '!') #This is the prefix to command the bot
 
@@ -26,9 +33,16 @@ async def ping(ctx): #ctx means context
     await ctx.channel.purge(limit=1)
     await ctx.send(f'Pong! {round(client.latency * 1000)}')
     
-# *** 8 ball feature ***
-@client.command(aliases=['8ball', 'test'])
-async def _8ball(ctx, * , question):
+
+# This awaits for the command 'clear" and the amount of messages to clear.
+# If no amount is specified then the default amount it takes is 5, as shown below.
+
+@client.command()
+async def clear(ctx, amount=5):
+    await ctx.channel.purge(limit=amount)
+
+@client.command(aliases=['8ball'])
+async def _8ball(ctx, *, question):
     await ctx.channel.purge(limit=1)
     responses =  ["It is certain.",
                   "It is decidedly so.",
@@ -53,13 +67,11 @@ async def _8ball(ctx, * , question):
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
 
-# This awaits for the command 'clear" and the amount of messages to clear.
-# If no amount is specified then the default amount it takes is 5, as shown below.
-
-@client.command()
-async def clear(ctx, amount=5):
-    await ctx.channel.purge(limit=amount)
-
+@client.event 
+async def on_message(message):
+    msgText = message.content.lower()
+    if (msgText.startswith('hello') or msgText.startswith('hey') or msgText.startswith('hi')):
+        print(f"Hello")
 
 client.run('NjU1MjExMjY0MjAwNDA5MDkw.XfQ17g.bST_82pKnbZSZnTe24jZ-WAFsNA') #This is the bot token inside
     
