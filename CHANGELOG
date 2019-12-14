@@ -1,0 +1,5 @@
+## 12/13/2019 ##
+-Stopped using Anaconda as a way to build the application, much easier to install pip and download the discord.py
+through there
+-Stopped using PyCharm, this allows for the program to do what it is intended with less extra steps, also a lot easier for others
+to use.
