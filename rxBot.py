@@ -1,42 +1,20 @@
-#TODO:
-# 1) Place 8ball command in features folder
-# 2) Use your own cat api to implement
-# 3) 
+#TODO: Make bot post cat picture with API
 
 import discord
 import random
 import requests
+from features import *
 from discord.ext import commands
 
 
-client = commands.Bot(command_prefix = '!') #This is the prefix to command the bot
-
+# client = commands.Bot(command_prefix = '!') #This is the prefix to command the bot
+client = discord.Client()
 
 @client.event
 async def on_ready():
     print('RxBot is operational')
 
 '''
-*** These commands below are for whenever a user joins the server ***
-*** They are not printed out on the server itself ***
-@client.event
-async def on_member_join(member):
-    print(f'{member} has joined a server')
-
-@client.event
-async def on_member_remove(member):
-    print(f'{member} has left the server')
-'''
-
-@client.command()
-async def ping(ctx): #ctx means context
-    await ctx.channel.purge(limit=1)
-    await ctx.send(f'Pong! {round(client.latency * 1000)}')
-    
-
-# This awaits for the command 'clear" and the amount of messages to clear.
-# If no amount is specified then the default amount it takes is 5, as shown below.
-
 @client.command()
 async def clear(ctx, amount=5):
     await ctx.channel.purge(limit=amount)
@@ -66,13 +44,25 @@ async def _8ball(ctx, *, question):
                   "Very doubtful."]
     await ctx.send(f'Question: {question}\nAnswer: {random.choice(responses)}')
 
-
+# Below works, however not shown on the discord channel
 @client.event 
 async def on_message(message):
     msgText = message.content.lower()
     if (msgText.startswith('hello') or msgText.startswith('hey') or msgText.startswith('hi')):
         print(f"Hello")
+'''
+@client.event
+async def on_message(message):
+        # Random cat picture
+        if message.content.startswith('shutdown') and message.author.id == config.OWNERID:
+            await client.send_message(message.channel, 'Shutting down. Bye!')
+            await client.logout()
+            await client.close()
 
-client.run('NjU1MjExMjY0MjAwNDA5MDkw.XfQ17g.bST_82pKnbZSZnTe24jZ-WAFsNA') #This is the bot token inside
+        elif message.content.startswith('cat'):
+            await client.send_message(message.channel, actions.getCatPicture())
+
+
+client.run('NjU1MjExMjY0MjAwNDA5MDkw.XfZA7A.bvM1bRqUW4vVCidMVisQ97cdVhA') #This is the bot token inside
     
    

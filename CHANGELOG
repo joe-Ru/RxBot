@@ -1,4 +1,9 @@
-## 12/14/2019
+## 12/15/2019 ##
+-Used code in order to try and post cat picture.
+-Added config.py and actions.py in order to store other features
+-Will probably end up deleting config.py
+
+## 12/14/2019 ##
 -Added command to clear out messages
 -Can now delete messages sent using await 'ctx.channel.purge(limit=1)'
 -8ball command takes input from user and can now delete user input.
