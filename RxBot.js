@@ -1,6 +1,9 @@
 const Discord = require('discord.js')
-const client = new Discord.Client()
 const axios = require('axios')
+const fetch = require('node-fetch');
+const { Client, RichEmbed } = require('discord.js');
+const client = new Client();
+const prefix = '!';
 
 //Sends picture of a cat
 const sendCats = async (message, numCats) => {
@@ -10,16 +13,35 @@ const sendCats = async (message, numCats) => {
     }
   }
 
-//TODO: Send cat fact as a test
-const catFact = async(message) = > {
-  const catFact = (await axios.get())
-}
-
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
-
-   // Use this to send picture on bootup: const attachment = new Discord.Attachment("")
 })
+
+
+client.on('message', async message => {
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+	const args = message.content.slice(prefix.length).split(/ +/);
+	const command = args.shift().toLowerCase();
+  const querystring = require('querystring');
+
+  // Start of Urban command
+  if (command === 'urban') {
+    if (!args.length) {
+      return message.channel.send('You need to supply a search term!');
+    }
+
+	const query = querystring.stringify({ term: args.join(' ') });
+
+  const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
+  
+  if (!list.length) {
+    return message.channel.send(`No results found for **${args.join(' ')}**.`);
+  }
+  
+  message.channel.send(list[0].definition);
+  } // end of Urban command	
+});
 
 
 client.on('message', message => {
@@ -34,6 +56,13 @@ client.on('message', message => {
     }
   });
 
+//Prints out cat fact
+client.on('message', async message => {
+  if(message.content == '!catFact') {
+    const { fact } = await fetch('https://catfact.ninja/fact').then(response => response.json());
+    message.channel.send(fact);
+  }
+})
   /*
 client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
@@ -43,4 +72,14 @@ client.on('message', (receivedMessage) => {
     receivedMessage.channel.send("Message received: " + receivedMessagae.author.toString() + receivedMessage.content)
 })
 */
-client.login("NjU1MjExMjY0MjAwNDA5MDkw.XgPilg.3pSFaWH0P6brFDzKRxjdTIDAzaQ")
+
+
+
+/* 
+
+Use this for drug API https://api.fda.gov/drug/event.json?limit=1
+
+where 
+
+*/ 
+client.login("NjU1MjExMjY0MjAwNDA5MDkw.XgPilg.3pSFaWH0P6brFDzKRxjdTIDAzaQ");

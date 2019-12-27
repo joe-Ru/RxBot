@@ -1,6 +1,11 @@
-## 12/25/2019 ##
+## 12/27/2019 ##
+-Installed node fetch module in order to speak with APIs requests a lot easier.
+-package.json created (finally)
+-Cat fact command working.
+
+## 12/26/2019 ##
 -Stopped using python, will use Javascript going forward
--Have posting cat on command to the desired channel
+-Have posting cat picture on command to the desired channel
 
 ## 12/15/2019 ##
 -Used code in order to try and post cat picture.
