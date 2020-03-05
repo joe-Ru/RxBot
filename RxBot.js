@@ -82,4 +82,4 @@ Use this for drug API https://api.fda.gov/drug/event.json?limit=1
 where 
 
 */ 
-client.login("NjU1MjExMjY0MjAwNDA5MDkw.XgPilg.3pSFaWH0P6brFDzKRxjdTIDAzaQ");
+client.login("token goes here");
