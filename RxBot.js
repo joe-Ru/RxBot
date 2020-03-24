@@ -5,6 +5,9 @@ const { Client, RichEmbed } = require('discord.js');
 const client = new Client();
 const prefix = '!';
 
+const medAnnouncement = "The RxBot is not to be taken as medical advice, if you are in trouble\
+please contact your physician or call 911 if this is a medical emergency. ";
+
 //Sends picture of a cat
 const sendCats = async (message, numCats) => {
     const catImages = (await axios.get(`https://api.thecatapi.com/v1/images/search?limit=${numCats}`)).data;
@@ -63,6 +66,20 @@ client.on('message', async message => {
     message.channel.send(fact);
   }
 })
+
+
+
+client.on('message', async message => {
+  var medicine;
+  if(message.content == '!medFact ' + medicine){
+    message.channel.send(medAnnouncement);
+
+    //TODO: Look into parsing the JSON output from the API to a variable and then accessing the info from there.
+    var parsing = JSON.parse()
+    const {reply} = await fetch('https://api.fda.gov/drug/event.json?search=' + medicine + )
+  }
+})
+
   /*
 client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
