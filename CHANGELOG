@@ -6,7 +6,8 @@ const fetch = require('node-fetch');
 const Discord = require('discord.js');
 const { Client, RichEmbed } = require('discord.js');
 
-As its probably not required so far. 
+-As it does not work so far. Instead placing statements such as "import fetch from 'node-fetch'" seems to work.
+
 
 ## 12/27/2019 ##
 -Installed node fetch module in order to speak with APIs requests a lot easier.

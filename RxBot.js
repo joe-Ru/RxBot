@@ -1,6 +1,7 @@
 import DISCORD_TOKEN from "./token.js";
 import Discord from "discord.js";
-
+import fetch from "node-fetch";
+import axios from "axios";
 
 const client = new Discord.Client();
 
