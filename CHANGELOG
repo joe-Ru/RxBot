@@ -1,3 +1,17 @@
+## 3/26/2020 ##
+- After some careful debugging I found what was causing the previous errors:
+    -Simply put, native javascript does not work well with 'import' and 'export' syntax. For 
+    whatever reason, I have no freaking clue. Thats why in the previous log I had to remove the 
+    listed lines and replace them as 'import...from....' however that was only due in part because I placed
+    the "type" : "module" line in the package.json thereby requiring everything to act like a module. 
+    -So it was either add that simple line > rewrite the contant variables > and deal with more errors. OR 
+    -Remove the [import { DISCORD_TOKEN} from './token.js'] and find a different way to store the token.
+    -I chose neither and instead installed the [esm] module (this was after installing babel, and a plethora of other node
+     modules), so now in order to run it you must type [node -r esm .\RxBot.js. Hopefully this won't bring about more bugs.
+
+-In conclusion: Debugging is done, cat fact and cat pics work, now its time to get the medFact command to work. I can now
+utilize the import functionally as I build this thing.
+
 ## 3/24/2020 ##
 -Removed the following lines:
 
@@ -7,7 +21,6 @@ const Discord = require('discord.js');
 const { Client, RichEmbed } = require('discord.js');
 
 -As it does not work so far. Instead placing statements such as "import fetch from 'node-fetch'" seems to work.
-
 
 ## 12/27/2019 ##
 -Installed node fetch module in order to speak with APIs requests a lot easier.

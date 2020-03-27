@@ -1,7 +1,9 @@
-import DISCORD_TOKEN from "./token.js";
-import Discord from "discord.js";
-import fetch from "node-fetch";
-import axios from "axios";
+import { DISCORD_TOKEN} from './token.js'
+
+const Discord = require('discord.js')
+const axios = require('axios')
+const fetch = require('node-fetch');
+const { Client, RichEmbed } = require('discord.js');
 
 const client = new Discord.Client();
 
