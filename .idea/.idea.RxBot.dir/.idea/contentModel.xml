@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Gabriel\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Gabriel\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Gabriel\Desktop\Coding Projects\RxBot" t="IncludeFlat">
+      <e p="node_modules\@babel\cli" t="IncludeRecursive" />
+      <e p="node_modules\@babel\core" t="IncludeRecursive" />
+      <e p="node_modules\@discordjs\uws" t="IncludeRecursive" />
+      <e p="node_modules\axios" t="IncludeRecursive" />
+      <e p="node_modules\babel-preset-env" t="IncludeRecursive" />
+      <e p="node_modules\babel-register" t="IncludeRecursive" />
+      <e p="node_modules\discord" t="IncludeRecursive" />
+      <e p="node_modules\discord.js" t="IncludeRecursive" />
+      <e p="node_modules\esm" t="IncludeRecursive" />
+      <e p="node_modules\node-fetch" t="IncludeRecursive" />
+      <e p="node_modules\tweetnacl" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>

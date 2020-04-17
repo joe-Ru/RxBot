@@ -7,7 +7,7 @@
     -So it was either add that simple line > rewrite the contant variables > and deal with more errors. OR 
     -Remove the [import { DISCORD_TOKEN} from './token.js'] and find a different way to store the token.
     -I chose neither and instead installed the [esm] module (this was after installing babel, and a plethora of other node
-     modules), so now in order to run it you must type [node -r esm .\RxBot.js. Hopefully this won't bring about more bugs.
+     modules), so now in order to run it you must type [node -r esm .\RxBot.js]. Hopefully this won't bring about more bugs.
 
 -In conclusion: Debugging is done, cat fact and cat pics work, now its time to get the medFact command to work. I can now
 utilize the import functionally as I build this thing.

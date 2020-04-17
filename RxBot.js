@@ -1,4 +1,4 @@
-import { DISCORD_TOKEN} from './token.js'
+import { DISCORD_TOKEN } from './token.js'
 
 const Discord = require('discord.js')
 const axios = require('axios')
@@ -84,21 +84,20 @@ client.on('message', async message => {
     const querystring = require('querystring');
   
     // Start of Urban command
-    if (command === 'medFact') {
-      if (!args.length) {
-        return message.channel.send('You need to supply a search term!');
-      }
+    if (command === '!medFact') {
   
     const query = querystring.stringify({ term: args.join(' ') });
-  
     const { list } = await fetch(`https://api.fda.gov/drug/event.json?search=${query}`).then(response => response.json());
     
+    conso
     if (!list.length) {
       return message.channel.send(`No results found for **${args.join(' ')}**.`);
     }
-    
+
+    console.log(MED_ANNOUNCEMENT);
+    console.log(list);
     message.channel.send(MED_ANNOUNCEMENT);
-    message.channel.send(list[0].definition);
+    message.channel.send(list);
   }
 }
 })
