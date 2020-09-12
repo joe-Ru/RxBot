@@ -9,7 +9,7 @@
     "discord": "^0.8.2",
     "discord.js": "^11.5.1",
     "esm": "^3.2.25",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
